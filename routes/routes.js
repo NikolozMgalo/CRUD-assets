@@ -1,4 +1,5 @@
-// import handlers
+const assetHandler = require('../handler/handler.js')
+const Joi = require('joi')
 
 module.exports = 
 [
@@ -10,7 +11,14 @@ module.exports =
 	{
 		method: 'GET',
 		path: '/assets/{id}',
-		handler: assetHandler.findOne
+		handler: assetHandler.findOne,
+		options: {
+			validate:{
+				params: {
+					id: Joi.required()
+				}
+			}
+		}
 	},
 	{
 		method: 'POST',
@@ -18,13 +26,28 @@ module.exports =
 		handler: assetHandler.createNew
 	},
 	{
-		method: 'PUT'.
+		method: 'PUT',
 		path: '/assets/{id}',
-		handler: assetHandler.updateOne
+		handler: assetHandler.updateOne,
+		options:{
+			validate:{
+				params:{
+					id: Joi.required()
+				}
+			}
+		}
 	},
 	{
 		method: 'DELETE',
 		path: '/assets/{id}',
-		handler: assetHandler.deleteOne
-	}
+		handler: assetHandler.deleteOne,
+		options:{
+			validate:{
+				params:{
+					id: Joi.required()
+				}
+			}
+		}
+	},
+	
 ]
