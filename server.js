@@ -5,7 +5,6 @@ const AssetRoutes = require('./routes/routes.js')
 
 
 
-
 mongoose.connect('mongodb://user123456:user123456@ds237373.mlab.com:37373/asset', { useNewUrlParser : true });
 let db = mongoose.connection
 
